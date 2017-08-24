@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "bulma": "^0.5.1",
-    "vue": "^2.4.2"
+    "vue": "^2.4.2",
+    "vuedraggable": "^2.14.1"
   }
 }

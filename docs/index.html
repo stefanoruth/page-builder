@@ -8,9 +8,14 @@
 <body>
 	<div id="root" class="section">
 		<div class="columns">
-			<pre class="column">{{ pageTemplate | pretty }}</pre>
+			<div class="column">
+				<pre class="column">{{ pageTemplate | pretty }}</pre>
+				<div class="column">
+					<button class="button is-primary is-small" v-on:click="exampleData">Example</button>
+				</div>
+			</div>
 			<div class="column is-8">
-				<template-builder :sections="pageTemplate"></template-builder>
+				<template-builder v-model="pageTemplate"></template-builder>
 			</div>
 		</div>
 	</div>
