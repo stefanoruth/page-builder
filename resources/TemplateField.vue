@@ -56,22 +56,6 @@
                     </div>
                 </div>
             </div>
-            <div class="column" v-if="field.type == 'repeater'">
-                <div class="field">
-                    <label class="label is-small">Min</label>
-                    <div class="control">
-                        <input type="number" class="input is-small" min="0" v-model="field.min">
-                    </div>
-                </div>
-            </div>
-            <div class="column" v-if="field.type == 'repeater'">
-                <div class="field">
-                    <label class="label is-small">Max</label>
-                    <div class="control">
-                        <input type="number" class="input is-small" min="1" v-model="field.max">
-                    </div>
-                </div>
-            </div>
             <div class="column">
                 <button v-on:click="$emit('delete-field')" class="button is-secundary is-small">Remove</button>
             </div>
@@ -80,26 +64,21 @@
         <div style="padding-left:2rem;" v-if="field.type == 'repeater'">
                  <template-field v-for="(panel, index) in field.panels" :key="index" :field="panel" v-on:delete-field="deleteSubField(index)"></template-field>
             <div class="column" style="padding-left: 0px">
-                <button v-on:click="addPanel(field)" class="button is-primary is-small">Add Panel</button>
+                <button v-on:click="addPanel(field)" class="button is-primary is-small">Add Field</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    let Field = require('./field.js');
+
     export default {
         props: ['field'],
 
         methods: {
             addPanel: function(repeater){
-                repeater.panels.push({
-                    title:null,
-                    label:null,
-                    type:null,
-                    min:0,
-                    max:null,
-                    panels:[],
-                });
+                repeater.panels.push(new Field);
             },
 
             deleteSubField: function(index){

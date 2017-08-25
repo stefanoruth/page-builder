@@ -205,59 +205,64 @@ window._ = __webpack_require__(5);
 Vue.component('template-field', __webpack_require__(7));
 Vue.component('template-builder', __webpack_require__(10));
 Vue.filter('pretty', function (value) {
-  return JSON.stringify(value, null, 2);
+    return JSON.stringify(value, null, 2);
 });
 
 window.myApp = new Vue({
-  el: '#root',
-  data: {
-    'pageTemplate': []
-  },
+    el: '#root',
+    data: {
+        'pageTemplate': []
+    },
 
-  methods: {
-    exampleData: function exampleData() {
-      this.pageTemplate.length = 0;
-      this.pageTemplate.push({
-        "title": "Header",
-        "label": "header",
-        "panels": []
-      });
+    created: function created() {
+        // this.exampleData();
+    },
 
-      this.pageTemplate.push({
-        "title": "Content",
-        "label": "content",
-        "panels": [{
-          "title": "Post",
-          "label": "post",
-          "type": "repeater",
-          "panels": [{
-            "title": "Title",
-            "label": "title",
-            "type": "text",
-            "min": 0,
-            "max": null,
-            "panels": []
-          }, {
-            "title": "Ulr",
-            "label": "slug",
-            "type": "url",
-            "min": 0,
-            "max": null,
-            "panels": []
-          }, {
-            "title": "Body",
-            "label": "body",
-            "type": "tinymce",
-            "min": 0,
-            "max": null,
-            "panels": []
-          }],
-          "min": "0",
-          "max": null
-        }]
-      });
+
+    methods: {
+        exampleData: function exampleData() {
+            this.pageTemplate.length = 0;
+            this.pageTemplate.push({
+                "title": "Header",
+                "label": "header",
+                "panels": []
+            });
+
+            this.pageTemplate.push({
+                "title": "Content",
+                "label": "content",
+                "panels": [{
+                    "title": "Post",
+                    "label": "post",
+                    "type": "repeater",
+                    "panels": [{
+                        "title": "Title",
+                        "label": "title",
+                        "type": "text",
+                        "min": 0,
+                        "max": null,
+                        "panels": []
+                    }, {
+                        "title": "Ulr",
+                        "label": "slug",
+                        "type": "url",
+                        "min": 0,
+                        "max": null,
+                        "panels": []
+                    }, {
+                        "title": "Body",
+                        "label": "body",
+                        "type": "tinymce",
+                        "min": 0,
+                        "max": null,
+                        "panels": []
+                    }],
+                    "min": "0",
+                    "max": null
+                }]
+            });
+        }
     }
-  }
 });
 
 /***/ }),
@@ -27593,36 +27598,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var Field = __webpack_require__(23);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['field'],
 
     methods: {
         addPanel: function addPanel(repeater) {
-            repeater.panels.push({
-                title: null,
-                label: null,
-                type: null,
-                min: 0,
-                max: null,
-                panels: []
-            });
+            repeater.panels.push(new Field());
         },
 
         deleteSubField: function deleteSubField(index) {
@@ -27724,65 +27708,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.field.type = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
       }
     }
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])])])]), _vm._v(" "), (_vm.field.type == 'repeater') ? _c('div', {
-    staticClass: "column"
-  }, [_c('div', {
-    staticClass: "field"
-  }, [_c('label', {
-    staticClass: "label is-small"
-  }, [_vm._v("Min")]), _vm._v(" "), _c('div', {
-    staticClass: "control"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.field.min),
-      expression: "field.min"
-    }],
-    staticClass: "input is-small",
-    attrs: {
-      "type": "number",
-      "min": "0"
-    },
-    domProps: {
-      "value": (_vm.field.min)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.field.min = $event.target.value
-      }
-    }
-  })])])]) : _vm._e(), _vm._v(" "), (_vm.field.type == 'repeater') ? _c('div', {
-    staticClass: "column"
-  }, [_c('div', {
-    staticClass: "field"
-  }, [_c('label', {
-    staticClass: "label is-small"
-  }, [_vm._v("Max")]), _vm._v(" "), _c('div', {
-    staticClass: "control"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.field.max),
-      expression: "field.max"
-    }],
-    staticClass: "input is-small",
-    attrs: {
-      "type": "number",
-      "min": "1"
-    },
-    domProps: {
-      "value": (_vm.field.max)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.field.max = $event.target.value
-      }
-    }
-  })])])]) : _vm._e(), _vm._v(" "), _c('div', {
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])])])]), _vm._v(" "), _c('div', {
     staticClass: "column"
   }, [_c('button', {
     staticClass: "button is-secundary is-small",
@@ -27819,7 +27745,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.addPanel(_vm.field)
       }
     }
-  }, [_vm._v("Add Panel")])])], 2) : _vm._e()])
+  }, [_vm._v("Add Field")])])], 2) : _vm._e()])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('optgroup', {
     attrs: {
@@ -28014,6 +27940,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
+var Field = __webpack_require__(23);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['value'],
@@ -28048,14 +27975,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         addPanel: function addPanel(index) {
-            this.sections[index].panels.push({
-                title: null,
-                label: null,
-                type: null,
-                min: 0,
-                max: null,
-                panels: []
-            });
+            this.sections[index].panels.push(new Field());
         },
 
         deleteField: function deleteField(sectionKey, fieldKey) {
@@ -30082,6 +30002,24 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */
+/***/ (function(module, exports) {
+
+module.exports = function () {
+    this.title = null;
+    this.label = null;
+    this.type = null;
+    this.panels = [];
+};
 
 /***/ })
 /******/ ]);

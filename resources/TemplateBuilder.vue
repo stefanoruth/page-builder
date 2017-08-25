@@ -37,6 +37,7 @@
 
 <script>
     import draggable from 'vuedraggable';
+    let Field = require('./field.js');
 
     export default {
         props: ['value'],
@@ -70,14 +71,7 @@
             },
 
             addPanel: function(index){
-                this.sections[index].panels.push({
-                    title:null,
-                    label:null,
-                    type:null,
-                    min:0,
-                    max:null,
-                    panels:[],
-                });
+                this.sections[index].panels.push(new Field);
             },
 
             deleteField(sectionKey, fieldKey){

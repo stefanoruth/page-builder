@@ -7,10 +7,16 @@ Vue.filter('pretty', function(value) {
     return JSON.stringify(value, null, 2);
 });
 
+
+
 window.myApp = new Vue({
     el: '#root',
     data: {
         'pageTemplate': [],
+    },
+
+    created() {
+        // this.exampleData();
     },
 
     methods: {
