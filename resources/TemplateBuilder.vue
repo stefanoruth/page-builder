@@ -1,34 +1,32 @@
 <template>
     <div>
-        <draggable v-model="sections">
-            <section v-for="(section, index) in sections" class="box">
-                <div class="columns">
-                    <div class="column">
-                        <div class="field">
-                            <label class="label is-small">Title</label>
-                            <div class="control">
-                                <input type="text" class="input is-small" v-model="section.title">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="field">
-                            <label class="label is-small">Label</label>
-                            <div class="control">
-                                <input type="text" class="input is-small" v-model="section.label">
-                            </div>
+        <section v-for="(section, index) in sections" class="box">
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label is-small">Title</label>
+                        <div class="control">
+                            <input type="text" class="input is-small" v-model="section.title">
                         </div>
                     </div>
                 </div>
-                <div style="padding-left:2rem;">
-                    <template-field v-for="(panel, panelIndex) in section.panels" :key="panelIndex" :field="panel" v-on:delete-field="deleteField(index, panelIndex)"></template-field>
+                <div class="column">
+                    <div class="field">
+                        <label class="label is-small">Label</label>
+                        <div class="control">
+                            <input type="text" class="input is-small" v-model="section.label">
+                        </div>
+                    </div>
                 </div>
-                <div class="control column">
-                    <button v-on:click="addPanel(index)" class="button is-primary is-small">Add Panel</button>
-                    <button v-on:click="removeSection(index)" class="button is-small">Remove Section</button>
-                </div>
-            </section>
-        </draggable>
+            </div>
+            <div style="padding-left:2rem;">
+                <template-field v-for="(panel, panelIndex) in section.panels" :key="panelIndex" :field="panel" v-on:delete-field="deleteField(index, panelIndex)"></template-field>
+            </div>
+            <div class="control column">
+                <button v-on:click="addPanel(index)" class="button is-primary is-small">Add Panel</button>
+                <button v-on:click="removeSection(index)" class="button is-small">Remove Section</button>
+            </div>
+        </section>
         <div class="control column">
             <button v-on:click="addSection" class="button is-primary is-small">Add Section</button>
         </div>
