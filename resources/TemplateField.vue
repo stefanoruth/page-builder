@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-       <div class="card-footer" v-if="field.hasSubFields()" style="flex-flow: column;">
+       <div class="card-footer" v-if="hasSubFields(field)" style="flex-flow: column;">
             <div class="column">
                 <template-field v-for="(panel, index) in field.panels" :key="index" :field="panel" v-on:delete-field="deleteSubField(index)"></template-field>
             </div>
@@ -97,6 +97,10 @@
             deleteSubField: function(index){
                 this.field.panels.splice(index, 1);
             },
+
+            hasSubFields: function(field) {
+                return ['section', 'repeater'].indexOf(field.type) > -1;
+            }
         },
     }
 </script>
