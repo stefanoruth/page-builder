@@ -100,22 +100,3 @@
         },
     }
 </script>
-<!-- 
- <div class="columns">
-            <div class="column">
-                
-            </div>
-            <div class="column">
-                
-            </div>
-            <div class="column">
-                 
-            </div>
-            <div class="column">
-                
-            </div>
-        </div>
-        <hr v-if="field.hasSubFields()">
-        <div style="padding-left:2rem;" v-if="field.hasSubFields()">
-            
-        </div> -->
