@@ -9,10 +9,15 @@
 	<div id="root" class="section">
 		<div class="columns">
 			<div class="column">
+				<div class="column">
+					<button class="button" v-on:click="showPage('template')" v-bind:class="{'is-primary': page == 'template'}">Template</button>
+					<button class="button" v-on:click="showPage('content')" v-bind:class="{'is-primary': page == 'content'}">Content</button>
+				</div>
 				<pre class="column">{{ pageTemplate | pretty }}</pre>
 			</div>
 			<div class="column is-8">
-				<template-builder v-model="pageTemplate"></template-builder>
+				<template-builder v-model="pageTemplate" v-show="page == 'template'"></template-builder>
+				<content-builder v-bind:template="pageTemplate" v-show="page == 'content'"></content-builder>
 			</div>
 		</div>
 	</div>

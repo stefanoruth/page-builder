@@ -38,7 +38,7 @@
                                             <option value="placeholder">Placeholder</option>
                                             <option value="section">Section</option>
                                         </optgroup>
-                                        <!-- <optgroup label="Content">
+                                        <optgroup label="Content">
                                             <option value="tinymce">TinyMCE</option>
                                             <option value="image">Image</option>
                                             <option value="file">File</option>
@@ -52,7 +52,7 @@
                                         </optgroup>
                                         <optgroup label="Component">
                                             <option value="map">Map</option>
-                                        </optgroup> -->
+                                        </optgroup>
                                     </select>
                                 </div>
                             </div>
