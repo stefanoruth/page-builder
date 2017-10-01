@@ -17,111 +17,32 @@ window.myApp = new Vue({
         'page': 'content',
         'pageTemplate': [
   {
-    "title": "Page title",
-    "label": "page-title",
-    "type": "text",
-    "panels": []
-  },
-  {
-    "title": "Produkt Sektion",
-    "label": "product-section",
-    "type": "section",
-    "panels": [
+    "title": "Posts",
+    "label": null,
+    "type": "repeater",
+    "fields": [
       {
         "title": "Title",
-        "label": "title",
+        "label": null,
         "type": "text",
-        "panels": []
+        "fields": [],
+        "numFields": 1,
+        "min": 0,
+        "max": null
       },
       {
-        "title": "Produkter",
-        "label": "products",
-        "type": "repeater",
-        "panels": [
-          {
-            "title": "Navn",
-            "label": "name",
-            "type": "text",
-            "panels": []
-          },
-          {
-            "title": "Description",
-            "label": "description",
-            "type": "textarea",
-            "panels": []
-          },
-          {
-            "title": "Billede",
-            "label": "image",
-            "type": "image",
-            "panels": []
-          },
-          {
-            "title": "Kategorier",
-            "label": "categories",
-            "type": "multiselect",
-            "panels": []
-          }
-        ]
+        "title": "Body",
+        "label": null,
+        "type": "textarea",
+        "fields": [],
+        "numFields": 1,
+        "min": 0,
+        "max": null
       }
-    ]
-  },
-  {
-    "title": "Projects",
-    "label": "projects",
-    "type": "section",
-    "panels": [
-      {
-        "title": "Title",
-        "label": "title",
-        "type": "text",
-        "panels": []
-      },
-      {
-        "title": "Projects",
-        "label": "items",
-        "type": "repeater",
-        "panels": [
-          {
-            "title": "Title",
-            "label": "title",
-            "type": "text",
-            "panels": []
-          },
-          {
-            "title": "Main Image",
-            "label": "image",
-            "type": "image",
-            "panels": []
-          },
-          {
-            "title": "Body",
-            "label": "description",
-            "type": "tinymce",
-            "panels": []
-          },
-          {
-            "title": "Download files",
-            "label": "files",
-            "type": "repeater",
-            "panels": [
-              {
-                "title": "Title",
-                "label": "title",
-                "type": "text",
-                "panels": []
-              },
-              {
-                "title": "File",
-                "label": "file",
-                "type": "file",
-                "panels": []
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    ],
+    "numFields": 1,
+    "min": 0,
+    "max": null
   }
 ],
     },

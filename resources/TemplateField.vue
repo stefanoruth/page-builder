@@ -71,10 +71,10 @@
         </div>
        <div class="card-footer" v-if="hasSubFields(field)" style="flex-flow: column;">
             <div class="column">
-                <template-field v-for="(panel, index) in field.panels" :key="index" :field="panel" v-on:delete-field="deleteSubField(index)"></template-field>
+                <template-field v-for="(field, index) in field.fields" :key="index" :field="field" v-on:delete-field="deleteSubField(index)"></template-field>
             </div>
             <div class="column">
-                <button v-on:click="addPanel(field)" class="button is-primary is-small">Add Field</button>
+                <button v-on:click="addField(field)" class="button is-primary is-small">Add Field</button>
             </div>
        </div>
     </div>
@@ -90,12 +90,12 @@
         props: ['field'],
 
         methods: {
-            addPanel: function(repeater){
-                repeater.panels.push(new Field);
+            addField: function(repeater){
+                repeater.fields.push(new Field);
             },
 
             deleteSubField: function(index){
-                this.field.panels.splice(index, 1);
+                this.field.fields.splice(index, 1);
             },
 
             hasSubFields: function(field) {

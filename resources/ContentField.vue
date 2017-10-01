@@ -16,11 +16,11 @@
             </div>
             <div v-else-if="field.type == 'image' || field.type == 'file'" class="file has-name is-fullwidth">
                 <label class="file-label">
-                    <input class="file-input" type="file" name="resume">
+                    <input class="file-input" type="file" v-on:change="fileUploaded">
                     <span class="file-cta">
                         <span class="file-label">Choose a file…</span>
                     </span>
-                    <span class="file-name">Screen Shot 2017-07-29 at 15.54.25.png</span>
+                    <span class="file-name">{{ inputValue }}</span>
                 </label>
             </div>
             <div v-else>Forgot to support that field "{{ field.type }} xD"</div>
@@ -32,10 +32,15 @@
             <div class="card-header-title">{{ field.title }}</div>
         </div>
         <div class="card-content">
-            <content-field v-for="(subField, subKey) in field.panels" :key="subKey" :field="subField"></content-field>
+            <div v-for="i in field.numFields">
+                <content-field v-for="(subField, subKey) in field.fields" :key="subKey" :field="subField"></content-field>
+                <hr v-if="field.numFields != i">
+            </div>
         </div>
         <div class="card-footer" v-if="field.type == 'repeater'">
-            <button class="button">Add</button>
+            <div class="card-footer-item">
+                <button class="button" @click="addField">Add</button>
+            </div>
         </div>
     </div>
             
@@ -47,6 +52,11 @@
 <script>
     export default {
         props: ['field'],
+        data() {
+            return {
+                inputValue: null,
+            }
+        },
 
         methods: {
             isSimple: function(type) {
@@ -55,7 +65,13 @@
 
             hasSubFields: function(type) {
                 return ['section','repeater'].indexOf(type) > -1;
-            }
+            },
+            fileUploaded: function(event) {
+                this.inputValue = event.srcElement.files[0].name;
+            },
+            addField: function() {
+                this.field.numFields++;
+            },
         }
     }
 </script>
