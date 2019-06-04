@@ -16,7 +16,7 @@
     "lodash": "^4.17.11"
   },
   "dependencies": {
-    "bulma": "^0.5.1",
+    "bulma": "^0.7.5",
     "vue": "^2.4.2",
     "vuedraggable": "^2.14.1"
   }
